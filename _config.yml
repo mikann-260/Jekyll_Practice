@@ -1,7 +1,11 @@
 # サイト基本情報
 title: "Jekyll_Practice"
-description: "Jekyllの練習用(mikann-260作)"
+description: "Jekyllの練習用サイト"
 lang: ja
+timezone: Asia/Tokyo
+
+# PWA
+pwa: false
 
 # URL設定
 url: "https://mikann-260.github.io"
@@ -15,4 +19,5 @@ source: docs
 
 # プラグイン
 plugins:
+  - jekyll-seo-tag
   - jekyll-sitemap
