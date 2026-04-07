@@ -1,3 +1,4 @@
-title: mikann-260.github.io
-baseurl: ""
+title: "Jekyll_Practice"
+baseurl: "/Jekyll_Practice"
 url: "https://mikann-260.github.io/"
+PWA: false
