@@ -3,11 +3,16 @@
 <meta name="theme-color" content="#028760" />
 {% if page.Is404 %}
   <meta name="robots" content="noindex, nofollow" />
-  <title>{{ page.title }}</title>
+  <title>{{ page.title }} | {{ site.title }}</title>
 {% else %}
   <meta name="robots" content="noindex, nofollow" />
   {% comment %} <meta name="robots" content="{{ page.robots | default: "index, follow"}}" /> {% endcomment %}
-  {% seo %}
+  {% if page.noSiteName %}
+    <title>{{ page.title }}</title>
+    {% seo title=false %}
+  {% else %}
+    {% seo %}
+  {% endif %}
 {% endif %}
 <!-- Favicon -->
 <link
@@ -25,8 +30,8 @@
   sizes="180x180"
   href="{{ "/assets/images/favicon/apple-touch-icon.png" | relative_url }}" />
 {% if page.pwa or site.pwa %}
-      <meta name="apple-mobile-web-app-title" content="{{ page.pwa.title | default: site.pwa.title}}" />
-    <link rel="manifest" href="{{ page.pwa.manifest | default: site.pwa.manifest| relative_url }}" />
+  <meta name="apple-mobile-web-app-title" content="{{ page.pwa.title | default: site.pwa.title}}" />
+  <link rel="manifest" href="{{ page.pwa.manifest | default: site.pwa.manifest| relative_url }}" />
 {% endif %}
 <!-- Font -->
 <link

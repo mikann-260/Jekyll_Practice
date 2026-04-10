@@ -18,10 +18,21 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minifyBash": "npm run minify:htmlBash && npm run minify:cssBash && npm run minify:jsBash",
+    "minify:htmlBash": "html-minifier-terser --input-dir ./_site --output-dir ./_site --file-ext html --remove-comments --collapse-whitespace --minify-css true --minify-js true",
+    "minify:cssBash": "bash -c \"find _site -name '*.css' -exec npx cleancss -o {} {} \\;\"",
+    "minify:jsBash": "bash -c \"find _site -name '*.js' -exec npx terser {} -o {} --compress --mangle \\;\"",
+    "minifyWin": "npm run minify:htmlWin && npm run minify:cssWin && npm run minify:jsWin",
+    "minify:htmlWin": "html-minifier-terser --input-dir ./_site --output-dir ./_site --file-ext html --remove-comments --collapse-whitespace --minify-css true --minify-js true",
+    "minify:cssWin": "powershell -Command \"Get-ChildItem -Recurse -Filter *.css _site | ForEach-Object {cleancss -o $_.FullName $_.FullName}\"",
+    "minify:jsWin": "powershell -Command \"Get-ChildItem -Recurse -Filter *.js _site | ForEach-Object {terser $_.FullName -o $_.FullName --compress --mangle }\""
   },
   "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
     "prettier": "^3.8.1",
-    "prettier-plugin-liquid": "^0.0.1-security"
+    "prettier-plugin-liquid": "^0.0.1-security",
+    "terser": "^5.46.1"
   }
 }

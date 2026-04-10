@@ -8,6 +8,8 @@ extra:
     - "/tools/progress/style.css"
   js:
     - "/tools/progress/script.js"
+seo:
+  type: "WebPage"
 date: 2026-04-01
 last_modified_at: 2026-04-02
 ---
@@ -20,13 +22,7 @@ last_modified_at: 2026-04-02
   <li>日付の入力は必須です。</li>
   <li>時間は未入力の場合、午前0時として扱われます。</li>
 </ul>
-<noscript>
-  <div>
-    <h2>【JavaScriptが無効になっています】</h2>
-    <p>このページはJavaScriptを使用しています。</p>
-    <p>ブラウザーの設定で、JavaScriptを有効化してください。</p>
-  </div>
-</noscript>
+{% include noscript.html %}
 <div class="main" id="js-enabled" hidden>
   <div class="input">
     <fieldset class="tdinput">
@@ -43,23 +39,19 @@ last_modified_at: 2026-04-02
   <div class="output">
     <h3>計算結果</h3>
     <p>
-      <span class="label">経過率</span> :
-      <br class="outputBr" />
+      <span class="label">経過率</span> :&nbsp;<br class="outputBr" />
       <span id="percent" class="outputSpan"></span>
     </p>
     <p>
-      <span class="label">長さ</span> :
-      <br class="outputBr" />
+      <span class="label">長さ</span> :&nbsp;<br class="outputBr" />
       <span id="howLong" class="outputSpan"></span>
     </p>
     <p>
-      <span class="label">経過時間</span> :
-      <br class="outputBr" />
+      <span class="label">経過時間</span> :&nbsp;<br class="outputBr" />
       <span id="elapsedTime" class="outputSpan"></span>
     </p>
     <p>
-      <span class="label">残り時間</span> :
-      <br class="outputBr" />
+      <span class="label">残り時間</span> :&nbsp;<br class="outputBr" />
       <span id="remainingTime" class="outputSpan"></span>
     </p>
   </div>

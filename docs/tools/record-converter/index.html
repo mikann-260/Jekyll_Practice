@@ -1,6 +1,7 @@
 ---
 layout: "default"
 title: "記録変換"
+noSiteName: true
 description: "入力された距離と記録から、別の距離に換算した予想タイムや時速などを計算します。"
 pwa:
   title: "記録変換"
@@ -12,6 +13,8 @@ extra:
   js:
     - "/tools/record-converter/script.js"
 sitemap: false
+seo:
+  type: "WebPage"
 date: 2026-02-28
 last_modified_at: 2026-04-02
 ---
@@ -20,13 +23,7 @@ last_modified_at: 2026-04-02
 <p>
   入力された距離と記録から、別の距離に換算した予想タイムや時速などを計算します。
 </p>
-<noscript>
-  <div>
-    <h2>【JavaScriptが無効になっています】</h2>
-    <p>このページはJavaScriptを使用しています。</p>
-    <p>ブラウザーの設定で、JavaScriptを有効化してください。</p>
-  </div>
-</noscript>
+{% include noscript.html %}
 <div class="main" id="js-enabled" hidden>
   <div class="input">
     <fieldset>
